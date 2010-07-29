@@ -1,0 +1,49 @@
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="jquery.tmpl.js"></script>
+<script>
+jQuery(function(){
+    var dataObject = {
+       
+        "event": {"eventDate":"Mon July 20",
+                  "eventTitle":"Awesome Festival",
+                  "sponsorships": ["City Pages ", "Radio K"]},
+
+        "headliners": {"stage":"Mainstage",
+                  "band":"Headliner Band",
+                  "appearanceTime":"9:00pm"},
+        "bookings": [
+                 {"stage":"Mainstage",
+                  "band":"Opening Band",
+                  "appearanceTime":"8:00pm"}
+        ]
+
+
+    };
+
+    var arrayOfDataObjects = [ dataObject, dataObject, dataObject ];
+
+
+
+	$("#sometmpl")
+        	.render( dataObject ) // Returns a LI with all the data filled in
+        	.appendTo("ul");
+
+	$("#sometmpl")
+        	.render( arrayOfDataObjects ) // Returns multiple LIs with data filled in
+        	.appendTo("ul");
+
+	
+
+});
+</script>
+
+<script id="sometmpl" type="text/html">
+        ${$i}) <a href="">${event.eventDate}</a>
+        ${$i}) <a href="">${event.sponsorships}</a>
+        ${$i}) <a href="">${event.eventTitle}</a>
+        ${$i}) <a href="">${headliners.band}</a>
+        <hr />
+</script>
+
+
+<ul></ul>
