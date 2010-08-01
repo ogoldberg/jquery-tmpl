@@ -8,12 +8,12 @@ jQuery(function(){
                   "eventTitle":"Awesome Festival",
                   "sponsorships": ["City Pages ", "Radio K"]},
 
-        "headliners": [
+        "headliner": [
                  {"stage":"Mainstage",
                   "band":"Headliner Band",
                   "appearanceTime":"9:00pm"}
               ],
-        "bookings": [
+        "booking": [
                  {"stage":"Mainstage",
                   "band":"Opening Band",
                   "appearanceTime":"8:00pm"}
@@ -40,10 +40,11 @@ jQuery(function(){
 </script>
 
 <script id="sometmpl" type="text/html">
-        ${$i}) <a href="">${event.eventDate}</a>
-        ${$i}) <a href="">${event.sponsorships}</a>
-        ${$i}) <a href="">${event.eventTitle}</a>
-        ${$i}) <a href="">${headliners.band}</a>
+         <a href="">${event.eventDate}</a>
+        <a href="">${event.sponsorships}</a>
+        <a href="">${event.eventTitle}</a>
+        {{each headliner}}<a href="">${this.band}</a>{{/each}}
+        {{each booking}}<a href="">${this.band}</a>{{/each}}
         <hr />
 </script>
 
